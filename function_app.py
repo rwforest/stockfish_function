@@ -168,8 +168,9 @@ def get_move_flags(board, move):
 
     return flags
 
-
-async def main(req: func.HttpRequest) -> func.HttpResponse:
+@app.function_name(name="HttpTrigger1")
+@app.route(route="eval")
+def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a stockfish_eval request.')
 
     fen = None
